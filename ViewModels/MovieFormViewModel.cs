@@ -11,6 +11,7 @@ namespace Vidly.ViewModels
     public class MovieFormViewModel
     {
         public IEnumerable<Genre> Genres { get; set; }
+        public Movie Movie { get; set; }
 
         public int? Id { get; set; }
 
@@ -29,11 +30,10 @@ namespace Vidly.ViewModels
         [Display(Name = "Number in Stock")]
         [Range(1, 20)]
         [Required]
-        public byte? QtyInStock { get; set; }
+        public byte? NumberInStock { get; set; }
         public string Title {
             get {
                 return Id != 0 ? "Edit Movie" : "New Movie";
-                //TODO this is bugged
             }
         }
 
@@ -45,7 +45,7 @@ namespace Vidly.ViewModels
             Id = movie.Id;
             Name = movie.Name;
             ReleaseDate = movie.ReleaseDate;
-            QtyInStock = movie.QtyInStock;
+            NumberInStock = movie.NumberInStock;
             GenreId = movie.GenreID;
         }
     
